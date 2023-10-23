@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hospital Management System</title>
+    <style>
+        /* Add some basic CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aqua;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hospital Management System</h1>
+        <button onclick="addPatient()">Add Patient</button>
+        <button onclick="displayPatients()">Display Patients</button>
+        <button onclick="editPatient()">Edit Patient</button>
+        <button onclick="dischargePatient()">Discharge Patient</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Sample data structure to store patient records
+        const patients = [];
+
+        // Function to generate a unique Patient ID
+        function generatePatientID() {
+            const id = "P" + (patients.length + 1).toString().padStart(4, '0');
+            return id;
+        }
+
+        // Function to add a new patient
+        function addPatient() {
+            const firstName = prompt("Enter First Name");
+            const lastName = prompt("Enter Last Name");
+            const dob = prompt("Enter Date of Birth");
+            const contactNumber = prompt("Enter Contact Number");
+            const admissionDate = prompt("Enter Admission Date");
+            const wardNumber = prompt("Enter Ward Number");
+
+            const patientID = generatePatientID();
+
+            const newPatient = {
+                patientID,
+                firstName,
+                lastName,
+                dob,
+                contactNumber,
+                admissionDate,
+                wardNumber
+            };
+
+            patients.push(newPatient);
+            alert("Patient added successfully!");
+        }
+
+        // Function to display patient records
+        function displayPatients() {
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";
+            if (patients.length === 0) {
+                outputDiv.innerHTML = "No patients in the system.";
+            } else {
+                patients.forEach(patient => {
+                    outputDiv.innerHTML += `Patient ID: ${patient.patientID}, Name: ${patient.firstName} ${patient.lastName}, Admission Date: ${patient.admissionDate}<br>`;
+                });
+            }
+        }
+
+        // Function to edit patient details by Patient ID
+        function editPatient() {
+            const patientID = prompt("Enter Patient ID for editing:");
+            const patient = patients.find(p => p.patientID === patientID);
+
+            if (patient) {
+                const newFirstName = prompt("Enter New First Name", patient.firstName);
+                const newLastName = prompt("Enter New Last Name", patient.lastName);
+
+                patient.firstName = newFirstName;
+                patient.lastName = newLastName;
+
+                alert("Patient details updated successfully!");
+            } else {
+                alert("Patient not found.");
+            }
+        }
+
+        // Function to discharge a patient by Patient ID
+        function dischargePatient() {
+            const patientID = prompt("Enter Patient ID for discharge:");
+            const index = patients.findIndex(p => p.patientID === patientID);
+
+            if (index !== -1) {
+                patients.splice(index, 1);
+                alert("Patient discharged successfully!");
+            } else {
+                alert("Patient not found.");
+            }
+        }
+    </script>
+</body>
+
+</html>
