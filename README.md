@@ -20,7 +20,7 @@ This is a basic HTML page that appears to be a Hospital Management System with a
 
 6. `editPatient()': When the "Edit Patient" button is clicked, this function prompts the user
 
-to enter a Patient ID. It searches for the patient with that ID in the 'patients' array and allows the user to update the first name and last name of the patient. An alert message confirms the successful update, or if the patient is not found.
+    to enter a Patient ID. It searches for the patient with that ID in the 'patients' array and allows the user to update the first name and last name of the patient. An alert message confirms the successful update, or if the patient is not found.
 
 7. `dischargePatient()': When the "Discharge Patient" button is clicked, this function prompts the user to enter a Patient ID, searches for the patient with that ID, and removes the patient from the 'patients' array. An alert message confirms the successful discharge, or if the patient is not found.
 
