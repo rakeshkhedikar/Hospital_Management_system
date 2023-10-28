@@ -4,11 +4,12 @@ This is a basic HTML page that appears to be a Hospital Management System with a
 
 1. The HTML structure is straightforward:
 
-• It includes a title, "Hospital Management System."
+    • It includes a title, "Hospital Management System."
 
-• It defines some basic CSS styles for the body, a container, and buttons.
+    • It defines some basic CSS styles for the body, a container, and buttons.
 
-• Inside the container, it contains a heading, four buttons (Add Patient, Display Patients, Edit Patient, Discharge Patient), and a 'div' element with the id "output" where patient information will be displayed.
+    • Inside the container, it contains a heading, four buttons (Add Patient, Display Patients, Edit Patient, Discharge Patient), and a 'div' element with the id 
+     "output" where patient information will be displayed.
 
 2. The JavaScript code defines some functions and an array 'patients to store patient records.
 
